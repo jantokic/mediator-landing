@@ -44,7 +44,7 @@ export default function Header() {
           </ul>
           <div className="ml-4">
             <Link
-              href="https://github.com/jantokic/hivemind"
+              href="https://github.com/jantokic/mediator"
               className="inline-flex items-center gap-2 bg-fg text-bg px-4 py-1.5 text-sm transition-colors hover:bg-fg/85"
             >
               Download

@@ -11,7 +11,7 @@ export default function CTA() {
           Get Mediator Today
         </h2>
         <Link
-          href="https://github.com/jantokic/hivemind"
+          href="https://github.com/jantokic/mediator"
           className="inline-flex items-center gap-2 bg-fg text-bg px-5 py-2.5 text-sm transition-colors hover:bg-fg/85"
         >
           Download for macOS
