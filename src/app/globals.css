@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #111113;
+  --color-fg: #fafafa;
+  --color-muted: rgba(250, 250, 250, 0.5);
+  --color-muted-2: rgba(250, 250, 250, 0.3);
+  --color-muted-3: rgba(250, 250, 250, 0.15);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent: #a78bfa;
+  --color-accent-dark: #7c3aed;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-fg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes message-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fill-bar {
+  to { width: 87%; }
+}
+
+.animate-msg {
+  opacity: 0;
+  animation: message-in 0.4s ease-out forwards;
+}
+
+.animate-fill {
+  width: 0;
+  animation: fill-bar 2s ease-out 4s forwards;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: message-in 0.3s ease-out 5.5s forwards;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
