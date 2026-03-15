@@ -11,7 +11,7 @@ export default function Footer() {
           <ul className="flex list-none gap-6">
             <li>
               <Link
-                href="https://github.com/jantokic/hivemind"
+                href="https://github.com/jantokic/mediator"
                 className="text-sm text-muted transition-colors hover:text-fg"
               >
                 GitHub
@@ -19,7 +19,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="https://github.com/jantokic/hivemind/issues"
+                href="https://github.com/jantokic/mediator/issues"
                 className="text-sm text-muted transition-colors hover:text-fg"
               >
                 Issues
