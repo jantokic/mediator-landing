@@ -8,7 +8,7 @@ export default function CTA() {
     <RevealWrapper>
       <div className="px-6 py-32 text-center">
         <h2 className="mb-8 font-mono text-[clamp(28px,4vw,40px)] font-normal">
-          Get Hivemind Today
+          Get Mediator Today
         </h2>
         <Link
           href="https://github.com/jantokic/hivemind"

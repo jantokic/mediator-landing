@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="mx-auto max-w-[1280px]">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
           <Link href="#" className="font-mono text-base font-medium text-muted">
-            Hivemind
+            Mediator
           </Link>
           <ul className="flex list-none gap-6">
             <li>
@@ -36,7 +36,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="mt-8 border-t border-white/[0.04] pt-6 text-sm text-muted-2">
-          &copy; 2026 Hivemind. Open source under MIT.
+          &copy; 2026 Mediator. Open source under MIT.
         </div>
       </div>
     </footer>

@@ -10,7 +10,7 @@ export default function Header() {
           href="#"
           className="font-mono text-lg font-medium tracking-tight text-fg transition-opacity hover:opacity-80"
         >
-          Hivemind
+          Mediator
         </Link>
 
         <div className="flex items-center">
