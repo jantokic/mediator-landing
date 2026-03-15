@@ -10,10 +10,10 @@ export default function Quote() {
           <div className="mb-4 font-mono text-5xl leading-none text-muted-3">&ldquo;</div>
           <p className="mb-5 text-[clamp(20px,3vw,28px)] font-light leading-snug">
             We kept asking AI the same question separately, then{" "}
-            <span className="text-accent">arguing over whose answer was better</span>. Hivemind
+            <span className="text-accent">arguing over whose answer was better</span>. Mediator
             cuts out the middleman.
           </p>
-          <p className="text-sm italic text-muted-2">— The moment that sparked Hivemind</p>
+          <p className="text-sm italic text-muted-2">— The moment that sparked Mediator</p>
         </div>
       </div>
     </RevealWrapper>
