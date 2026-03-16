@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-const DOWNLOAD_URL = "https://github.com/jantokic/hivemind/releases/download/v0.1.4/mediator-0.1.4-arm64.dmg";
+const DOWNLOAD_URL = "https://github.com/jantokic/codecouncil/releases/download/v0.3.0/codecouncil-0.3.0-arm64.dmg";
 
 export default function Header() {
   return (

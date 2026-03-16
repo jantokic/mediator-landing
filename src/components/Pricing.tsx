@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { RevealWrapper } from "./Features";
 
-const DOWNLOAD_URL = "https://github.com/jantokic/hivemind/releases/download/v0.1.4/mediator-0.1.4-arm64.dmg";
+const DOWNLOAD_URL = "https://github.com/jantokic/codecouncil/releases/download/v0.3.0/codecouncil-0.3.0-arm64.dmg";
 
 const check = (
   <svg className="w-4 h-4 text-green-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
