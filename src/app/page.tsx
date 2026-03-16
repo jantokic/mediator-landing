@@ -11,14 +11,27 @@ export default function Home() {
     <>
       <Header />
       <Hero />
-      <div className="h-20" />
-      <div className="mx-auto h-px max-w-[1280px] bg-border" />
-      <Features />
-      <div className="mx-auto h-px max-w-[1280px] bg-border" />
-      <Models />
-      <div className="mx-auto h-px max-w-[1280px] bg-border" />
-      <Quote />
-      <div className="mx-auto h-px max-w-[1280px] bg-border" />
+
+      <div className="liquid-glass-mini" aria-hidden="true" />
+
+      <div className="glow-section glow-section-left">
+        <Features />
+      </div>
+
+      <div className="liquid-glass-mini" aria-hidden="true" />
+
+      <div className="glow-section glow-section-right">
+        <Models />
+      </div>
+
+      <div className="mx-auto max-w-[800px] divider-glow" />
+
+      <div className="glow-section">
+        <Quote />
+      </div>
+
+      <div className="liquid-glass-mini" aria-hidden="true" />
+
       <CTA />
       <Footer />
     </>

@@ -12,33 +12,37 @@ const models = [
 
 export default function Models() {
   return (
-    <section id="models" className="px-6 py-28">
-      <div className="mx-auto max-w-[1280px] text-center">
+    <section id="models" className="relative px-6 py-28">
+      <div className="mx-auto max-w-[1200px] text-center relative z-10">
         <RevealWrapper>
-          <div className="font-mono text-xs uppercase tracking-[2px] text-muted-2 text-center">
+          <span className="badge mx-auto">
             Integrations
-          </div>
-          <h2 className="mx-auto mt-4 font-mono text-[clamp(28px,4vw,44px)] font-normal leading-[1.2] tracking-tight">
-            Works with any model.
+          </span>
+          <h2 className="mx-auto mt-6 text-[clamp(30px,4.5vw,48px)] font-semibold leading-[1.1] tracking-tight">
+            Works with <span className="accent-serif">any model</span>
           </h2>
-          <p className="mx-auto mt-4 text-[17px] font-light text-muted">
+          <p className="mx-auto mt-4 max-w-[480px] text-[17px] text-muted">
             100+ models via OpenRouter. Mix and match for different debate styles.
           </p>
         </RevealWrapper>
 
         <RevealWrapper className="mt-12">
-          <div className="flex flex-wrap justify-center gap-2 max-sm:flex-col max-sm:items-center">
+          <div className="flex flex-wrap justify-center gap-3 max-sm:flex-col max-sm:items-center">
             {models.map((m) => (
               <div
                 key={m.name}
-                className="flex items-center gap-2.5 border border-border px-4 py-2.5 text-sm text-fg transition-colors hover:border-white/15 max-sm:w-full max-sm:max-w-[280px]"
+                className="group flex items-center gap-3 rounded-full bg-white/[0.03] border border-white/[0.06] px-5 py-3 text-sm text-fg/90 transition-all duration-300 hover:bg-white/[0.06] hover:border-accent/15 hover:shadow-[0_0_20px_rgba(139,123,245,0.06)] max-sm:w-full max-sm:max-w-[280px] max-sm:rounded-xl cursor-pointer"
               >
-                <div className={`h-1.5 w-1.5 rounded-full ${m.color}`} />
-                {m.name}
-                <span className="ml-auto font-mono text-xs text-muted-2">{m.provider}</span>
+                <div className={`h-2 w-2 rounded-full ${m.color} transition-transform duration-300 group-hover:scale-125`} />
+                <span className="font-medium">{m.name}</span>
+                <span className="text-xs text-muted-2">{m.provider}</span>
               </div>
             ))}
           </div>
+
+          <p className="mt-6 text-sm text-muted-2">
+            + 100 more via OpenRouter — use any model with any persona
+          </p>
         </RevealWrapper>
       </div>
     </section>

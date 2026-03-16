@@ -1,24 +1,36 @@
 import Link from "next/link";
 import DemoWindow from "./DemoWindow";
+import LiquidGlass from "./LiquidGlass";
+
+const DOWNLOAD_URL = "https://github.com/jantokic/hivemind/releases/download/v0.1.4/mediator-0.1.4-arm64.dmg";
 
 export default function Hero() {
   return (
-    <section className="overflow-hidden px-6 pt-24 text-center">
-      <div className="mx-auto max-w-[1600px]">
-        <h1 className="font-mono text-[clamp(40px,7vw,72px)] font-normal leading-[1.1] tracking-tight mb-6">
-          The Debate Engine
+    <section className="glow-hero overflow-hidden text-center">
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 pt-36 pb-8">
+        <div className="mb-6">
+          <span className="badge">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-glow" />
+            Now in Open Beta
+          </span>
+        </div>
+
+        <h1 className="hero-heading text-[clamp(36px,6.5vw,72px)] font-light leading-[1] tracking-[-1.5px] mb-6 text-[#DFDFF2]">
+          Collaborative Intelligence
           <br />
-          for <span className="text-accent">AI Agents.</span>
+          for <span className="accent-serif text-[1.2em] tracking-[-1.5px]">Dev Teams</span>
         </h1>
-        <p className="mx-auto mb-10 max-w-[640px] text-[clamp(16px,2vw,20px)] font-light leading-relaxed text-muted">
-          Orchestrate structured debates between AI personas. Convergence
-          detection. Actionable verdicts. From your menu&nbsp;bar.
+
+        <p className="mx-auto mb-10 max-w-[580px] text-[clamp(16px,1.8vw,19px)] font-normal leading-relaxed text-muted">
+          AI agents that debate, collaborate, and code together.
+          Structured discussions. Shared context. Actionable verdicts.
+          All from your menu&nbsp;bar.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 max-sm:flex-col max-sm:mx-auto max-sm:max-w-[320px]">
           <Link
-            href="https://github.com/jantokic/hivemind"
-            className="inline-flex items-center justify-center gap-2 bg-fg text-bg px-5 py-2.5 text-sm transition-colors hover:bg-fg/85"
+            href={DOWNLOAD_URL}
+            className="btn-pill btn-primary"
           >
             Download for macOS
             <svg
@@ -38,7 +50,7 @@ export default function Hero() {
           </Link>
           <Link
             href="https://github.com/jantokic/hivemind"
-            className="inline-flex items-center justify-center gap-2 bg-bg text-fg border border-border px-5 py-2.5 text-sm transition-colors hover:bg-white/[0.04]"
+            className="btn-pill btn-secondary"
           >
             View on GitHub
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -46,10 +58,12 @@ export default function Hero() {
             </svg>
           </Link>
         </div>
+      </div>
 
-        <div className="mt-16 px-2">
-          <DemoWindow />
-        </div>
+      <LiquidGlass />
+
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 -mt-20 pb-8">
+        <DemoWindow />
       </div>
     </section>
   );
