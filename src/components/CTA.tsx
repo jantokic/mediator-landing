@@ -10,18 +10,18 @@ export default function CTA() {
     <RevealWrapper>
       <div className="relative px-6 py-32 text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-accent/[0.04] blur-[120px]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[400px] h-[200px] rounded-full bg-[#6366f1]/[0.06] blur-[80px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-accent/[0.06] blur-[120px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[400px] h-[200px] rounded-full bg-[#6366f1]/[0.08] blur-[80px]" />
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
 
         <div className="relative z-10">
           <h2 className="mb-4 text-[clamp(28px,4vw,44px)] font-semibold tracking-tight">
-            Your team&apos;s AI shouldn&apos;t have <span className="accent-serif">amnesia.</span>
+            Stop re-explaining your codebase <span className="accent-serif">to a fresh AI.</span>
           </h2>
-          <p className="mb-8 text-muted text-lg max-w-[460px] mx-auto">
-            Download CodeCouncil and give your team a shared AI brain.
+          <p className="mb-8 text-muted text-lg max-w-[500px] mx-auto">
+            Download CodeCouncil and give your whole team a shared AI coding session — with full context, from day one.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link href={DOWNLOAD_URL} className="btn-pill btn-accent text-base px-8 py-3">
