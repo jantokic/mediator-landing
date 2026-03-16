@@ -10,6 +10,7 @@ interface Feature {
   visual: React.ReactNode;
   reverse?: boolean;
   id?: string;
+  comingSoon?: boolean;
 }
 
 function SharedSessionVisual() {
@@ -49,7 +50,9 @@ function SharedSessionVisual() {
         </div>
       ))}
       <div className="flex items-center gap-2 rounded-lg bg-white/[0.02] px-3 py-2 text-xs text-muted-2">
-        <span>🤖</span><span>AI has full context from all 3 participants</span>
+        <span className="font-mono text-accent-light text-[10px]">ROOM c7f2</span>
+        <span className="h-3 w-px bg-white/[0.08]" />
+        <span>AI has full context from all 3 participants</span>
       </div>
     </div>
   );
@@ -112,34 +115,102 @@ function DiscussionVisual() {
   );
 }
 
-function MCPVisual() {
+function IntegrationsVisual() {
   const [activeItem, setActiveItem] = useState<number | null>(null);
-  const tools = [
-    { name: "get_session_info", desc: "Session overview + all participant context", icon: "📊" },
-    { name: "send_message", desc: "Post to session on behalf of any AI tool", icon: "💬" },
-    { name: "read_document", desc: "Access shared docs and code context", icon: "📄" },
-    { name: "list_participants", desc: "See who's in the session right now", icon: "👥" },
+  const integrations = [
+    {
+      name: "Git",
+      desc: "Sessions reference branches, PRs, and diffs. AI gets repo context automatically.",
+      icon: (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="18" cy="18" r="3" /><circle cx="6" cy="6" r="3" /><path d="M13 6h3a2 2 0 012 2v7" /><path d="M6 9v12" />
+        </svg>
+      ),
+      status: "Coming Soon",
+      statusColor: "text-amber-400/70",
+    },
+    {
+      name: "Slack",
+      desc: "Post session summaries to channels. Start sessions from Slack with /codecouncil.",
+      icon: (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" />
+        </svg>
+      ),
+      status: "Coming Soon",
+      statusColor: "text-amber-400/70",
+    },
+    {
+      name: "MCP Server",
+      desc: "Expose session context to Claude Desktop, ChatGPT, or any MCP client.",
+      icon: (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="2" width="20" height="8" rx="2" /><rect x="2" y="14" width="20" height="8" rx="2" /><circle cx="6" cy="6" r="1" /><circle cx="6" cy="18" r="1" />
+        </svg>
+      ),
+      status: "Active",
+      statusColor: "text-green-400/70",
+    },
+    {
+      name: "BYOK Models",
+      desc: "Bring your own API keys — OpenRouter, Anthropic, OpenAI, or any provider.",
+      icon: (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
+        </svg>
+      ),
+      status: "Active",
+      statusColor: "text-green-400/70",
+    },
   ];
 
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex items-center gap-2 mb-1">
-        <span className="text-[10px] uppercase tracking-widest text-accent-light font-medium">MCP Server</span>
-        <span className="text-[10px] text-green-400/70 flex items-center gap-1"><span className="h-1 w-1 rounded-full bg-green-400/70" />Active</span>
-      </div>
-      {tools.map((t, i) => (
+    <div className="flex flex-col gap-2.5">
+      {integrations.map((t, i) => (
         <div key={t.name} onMouseEnter={() => setActiveItem(i)} onMouseLeave={() => setActiveItem(null)}
           className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-300 cursor-pointer ${
             activeItem === i ? "bg-white/[0.06] border border-white/[0.1]" : "bg-white/[0.02] border border-white/[0.06]"
           }`}>
-          <span className="text-sm">{t.icon}</span>
+          <div className={`text-fg/60 transition-colors duration-300 ${activeItem === i ? "text-fg/90" : ""}`}>{t.icon}</div>
           <div className="flex-1 min-w-0">
-            <div className="text-xs font-mono text-fg/80">{t.name}</div>
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium text-fg/80">{t.name}</span>
+              <span className={`text-[9px] font-mono ${t.statusColor}`}>{t.status}</span>
+            </div>
             <div className={`text-[11px] transition-all duration-300 ${activeItem === i ? "text-muted" : "text-muted-2"}`}>{t.desc}</div>
           </div>
         </div>
       ))}
-      <div className="text-[11px] text-muted-2 mt-1 pl-1">Claude Desktop, ChatGPT, or any MCP client can join your sessions</div>
+    </div>
+  );
+}
+
+function TemplatesVisual() {
+  const [hovered, setHovered] = useState<number | null>(null);
+  const templates = [
+    { name: "Code Review", desc: "AI reviews PRs with your team's conventions", icon: "🔍", personas: "Reviewer, Security Auditor" },
+    { name: "Architecture Decision", desc: "Structured debate with convergence scoring", icon: "🏗", personas: "Pragmatist, Visionary, Devil's Advocate" },
+    { name: "Bug Investigation", desc: "Collaborative root cause analysis", icon: "🐛", personas: "Debugger, System Analyst" },
+    { name: "Sprint Planning", desc: "Break down stories with AI estimation", icon: "📋", personas: "PM, Tech Lead, Estimator" },
+  ];
+
+  return (
+    <div className="flex flex-col gap-2.5">
+      {templates.map((t, i) => (
+        <div key={t.name} onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)}
+          className={`rounded-xl bg-white/[0.03] border px-4 py-3 transition-all duration-300 cursor-pointer ${
+            hovered === i ? "bg-white/[0.06] border-white/[0.12]" : "border-white/[0.06]"
+          }`}>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-sm">{t.icon}</span>
+            <span className="text-sm font-medium text-fg/90">{t.name}</span>
+          </div>
+          <div className={`text-[11px] transition-colors duration-300 ${hovered === i ? "text-muted" : "text-muted-2"}`}>{t.desc}</div>
+          <div className={`mt-1.5 text-[10px] font-mono transition-colors duration-300 ${hovered === i ? "text-accent-light/60" : "text-muted-2/50"}`}>
+            {t.personas}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -150,7 +221,7 @@ const features: Feature[] = [
     title: "One session.",
     titleAccent: "Whole team.",
     description:
-      "Multiple developers join the same AI coding session in real-time. Everyone sees the full conversation. The AI maintains context from all participants — no more fragmented knowledge across isolated sessions.",
+      "Multiple developers join the same AI coding session via room code. Everyone sees the full conversation. The AI maintains context from all participants — no more fragmented knowledge across isolated sessions.",
     visual: <SharedSessionVisual />,
   },
   {
@@ -161,13 +232,14 @@ const features: Feature[] = [
       "Sessions persist in the cloud and survive app restarts. Developer A starts a deep session at 3pm, Developer B picks it up at 4pm with full context intact. Your team's AI-assisted knowledge never dies.",
     visual: <HandoffVisual />,
     reverse: true,
+    comingSoon: true,
   },
   {
     tag: "Discussion Mode",
     title: "Settle architecture debates",
     titleAccent: "with AI in the room.",
     description:
-      "When your team faces a big decision, spin up a Discussion. AI personas with different perspectives debate the options. Auto-convergence tells you when there's alignment. Get a structured verdict instead of a 200-message Slack thread.",
+      "Spin up a Discussion within any session. AI personas with different perspectives debate the options in rounds. Auto-convergence tells you when there's alignment — get a structured verdict instead of a 200-message Slack thread.",
     visual: <DiscussionVisual />,
     id: "how",
   },
@@ -176,9 +248,18 @@ const features: Feature[] = [
     title: "Connects to your",
     titleAccent: "entire stack.",
     description:
-      "Built-in MCP server exposes session context to external tools. Your team's shared sessions become the central hub that other AI tools plug into.",
-    visual: <MCPVisual />,
+      "Built-in MCP server, bring-your-own API keys, and upcoming Git and Slack integrations. Your shared sessions become the central hub your whole workflow plugs into.",
+    visual: <IntegrationsVisual />,
     reverse: true,
+  },
+  {
+    tag: "Session Templates",
+    title: "Start fast with",
+    titleAccent: "pre-built workflows.",
+    description:
+      "Pre-configured session types with the right AI personas and prompts for code reviews, architecture decisions, bug investigations, and sprint planning. Create custom templates for your team.",
+    visual: <TemplatesVisual />,
+    comingSoon: true,
   },
 ];
 
@@ -220,7 +301,7 @@ export default function Features() {
                 <div className={`flex flex-col gap-5 ${f.reverse ? "md:order-2" : ""}`}>
                   <div className="flex items-center gap-2">
                     <span className="badge w-fit">{f.tag}</span>
-                    {f.tag === "Pro" && (
+                    {f.comingSoon && (
                       <span className="rounded-full bg-white/[0.06] px-2 py-0.5 text-[10px] text-muted-2">Coming Soon</span>
                     )}
                   </div>
