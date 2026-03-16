@@ -67,7 +67,7 @@ export default function Models() {
             Works with <span className="accent-serif">any model</span>
           </h2>
           <p className="mx-auto mt-4 max-w-[480px] text-[17px] text-muted">
-            100+ models via OpenRouter. Mix and match for different debate styles.
+            100+ models via OpenRouter. Mix and match for any part of your workflow.
           </p>
         </RevealWrapper>
 
