@@ -1,13 +1,18 @@
 import Link from "next/link";
 import DemoWindow from "./DemoWindow";
 import LiquidGlass from "./LiquidGlass";
+import Crystal from "./Crystal";
 
 const DOWNLOAD_URL = "https://github.com/jantokic/hivemind/releases/download/v0.1.4/mediator-0.1.4-arm64.dmg";
 
 export default function Hero() {
   return (
-    <section className="glow-hero overflow-hidden text-center">
+    <section className="glow-hero overflow-x-clip text-center relative">
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 pt-36 pb-8">
+        {/* Extra crystals in hero */}
+        <Crystal className="left-0 top-[15%] max-md:hidden" scale={0.9} rotate={20} delay="1s" />
+        <Crystal className="left-[8%] top-[75%] max-lg:hidden" scale={0.55} rotate={-30} delay="3s" sparkle={false} />
+        <Crystal className="right-0 top-[5%] max-md:hidden" scale={0.65} rotate={10} delay="2s" sparkle={false} />
         <div className="mb-6">
           <span className="badge">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-glow" />

@@ -322,13 +322,101 @@ body {
 }
 
 @keyframes crystal-float {
-  0%, 100% { transform: rotate(-15deg) translateY(0); }
-  50% { transform: rotate(-15deg) translateY(-8px); }
+  0%, 100% { transform: rotate(var(--crystal-rotate, -15deg)) translateY(0); }
+  50% { transform: rotate(var(--crystal-rotate, -15deg)) translateY(-8px); }
 }
 
 @keyframes sparkle {
   0%, 100% { opacity: 0.4; transform: scale(0.8); }
   50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Standalone crystal that can be placed anywhere */
+.crystal-standalone {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  --crystal-rotate: -15deg;
+  transform: rotate(var(--crystal-rotate));
+  animation: crystal-float 8s ease-in-out infinite;
+}
+
+.crystal-standalone .crystal-facet,
+.crystal-standalone .crystal-sparkle {
+  position: absolute;
+}
+
+.crystal-standalone .crystal-facet {
+  background: linear-gradient(
+    135deg,
+    rgba(180, 175, 255, 0.25) 0%,
+    rgba(200, 200, 255, 0.4) 30%,
+    rgba(160, 155, 240, 0.2) 60%,
+    rgba(140, 135, 230, 0.35) 100%
+  );
+  border: 1px solid rgba(200, 200, 255, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+.crystal-standalone .crystal-facet-1 {
+  width: 60px;
+  height: 90px;
+  top: 0;
+  left: 30px;
+  clip-path: polygon(50% 0%, 100% 35%, 100% 100%, 0% 100%, 0% 35%);
+  background: linear-gradient(160deg, rgba(200, 200, 255, 0.45) 0%, rgba(160, 155, 240, 0.15) 40%, rgba(180, 175, 255, 0.3) 100%);
+}
+
+.crystal-standalone .crystal-facet-2 {
+  width: 55px;
+  height: 80px;
+  top: 10px;
+  left: 55px;
+  clip-path: polygon(0% 25%, 100% 0%, 100% 100%, 0% 85%);
+  background: linear-gradient(200deg, rgba(140, 135, 230, 0.25) 0%, rgba(180, 180, 255, 0.4) 50%, rgba(160, 155, 245, 0.15) 100%);
+}
+
+.crystal-standalone .crystal-facet-3 {
+  width: 50px;
+  height: 70px;
+  top: 15px;
+  left: 10px;
+  clip-path: polygon(100% 30%, 100% 90%, 20% 100%, 0% 40%);
+  background: linear-gradient(240deg, rgba(170, 165, 250, 0.35) 0%, rgba(200, 200, 255, 0.15) 60%, rgba(150, 145, 240, 0.25) 100%);
+}
+
+.crystal-standalone .crystal-sparkle {
+  top: -5px;
+  right: 25px;
+  width: 20px;
+  height: 20px;
+  z-index: 4;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.crystal-standalone .crystal-sparkle::before,
+.crystal-standalone .crystal-sparkle::after {
+  content: "";
+  position: absolute;
+  background: white;
+}
+
+.crystal-standalone .crystal-sparkle::before {
+  width: 2px;
+  height: 16px;
+  top: 2px;
+  left: 9px;
+  border-radius: 1px;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.4);
+}
+
+.crystal-standalone .crystal-sparkle::after {
+  width: 16px;
+  height: 2px;
+  top: 9px;
+  left: 2px;
+  border-radius: 1px;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.4);
 }
 
 /* Ambient section glows — scattered throughout page */
@@ -413,7 +501,6 @@ body {
 /* Section-level liquid glass — subtle purple glow bands behind content */
 .liquid-glass-section {
   position: relative;
-  overflow: hidden;
 }
 
 .liquid-glass-section::before {
@@ -634,12 +721,8 @@ body {
 .accent-serif {
   font-family: var(--font-serif);
   font-style: italic;
-  color: #b8b5ff;
-  -webkit-text-stroke: 1.2px #b8b5ff;
-  paint-order: stroke fill;
-  letter-spacing: 0.03em;
+  color: #8987fc;
   font-size: 1.1em;
-  text-shadow: 0 0 30px rgba(139, 123, 245, 0.4);
 }
 
 /* Gradient text */
