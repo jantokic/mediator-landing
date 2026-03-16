@@ -10,7 +10,7 @@ export default function Header() {
           href="#"
           className="font-mono text-lg font-medium tracking-tight text-fg transition-opacity hover:opacity-80"
         >
-          Mediator
+          Hivemind
         </Link>
 
         <div className="flex items-center">
@@ -44,7 +44,7 @@ export default function Header() {
           </ul>
           <div className="ml-4">
             <Link
-              href="https://github.com/jantokic/mediator"
+              href="https://github.com/jantokic/hivemind"
               className="inline-flex items-center gap-2 bg-fg text-bg px-4 py-1.5 text-sm transition-colors hover:bg-fg/85"
             >
               Download

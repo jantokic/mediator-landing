@@ -99,7 +99,7 @@ function MenuBarVisual() {
           <rect x="3" y="14" width="7" height="7" />
           <rect x="14" y="14" width="7" height="7" />
         </svg>
-        Mediator
+        Hivemind
       </div>
       <p className="text-sm leading-relaxed text-muted-2">
         Always one click away. Create sessions, add personas, start debates — all from a compact

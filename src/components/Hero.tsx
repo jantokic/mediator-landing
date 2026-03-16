@@ -17,7 +17,7 @@ export default function Hero() {
 
         <div className="flex flex-wrap justify-center gap-3 max-sm:flex-col max-sm:mx-auto max-sm:max-w-[320px]">
           <Link
-            href="https://github.com/jantokic/mediator"
+            href="https://github.com/jantokic/hivemind"
             className="inline-flex items-center justify-center gap-2 bg-fg text-bg px-5 py-2.5 text-sm transition-colors hover:bg-fg/85"
           >
             Download for macOS
@@ -37,7 +37,7 @@ export default function Hero() {
             </svg>
           </Link>
           <Link
-            href="https://github.com/jantokic/mediator"
+            href="https://github.com/jantokic/hivemind"
             className="inline-flex items-center justify-center gap-2 bg-bg text-fg border border-border px-5 py-2.5 text-sm transition-colors hover:bg-white/[0.04]"
           >
             View on GitHub

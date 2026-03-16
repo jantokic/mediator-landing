@@ -6,12 +6,12 @@ export default function Footer() {
       <div className="mx-auto max-w-[1280px]">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
           <Link href="#" className="font-mono text-base font-medium text-muted">
-            Mediator
+            Hivemind
           </Link>
           <ul className="flex list-none gap-6">
             <li>
               <Link
-                href="https://github.com/jantokic/mediator"
+                href="https://github.com/jantokic/hivemind"
                 className="text-sm text-muted transition-colors hover:text-fg"
               >
                 GitHub
@@ -19,7 +19,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="https://github.com/jantokic/mediator/issues"
+                href="https://github.com/jantokic/hivemind/issues"
                 className="text-sm text-muted transition-colors hover:text-fg"
               >
                 Issues
@@ -36,7 +36,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="mt-8 border-t border-white/[0.04] pt-6 text-sm text-muted-2">
-          &copy; 2026 Mediator. Open source under MIT.
+          &copy; 2026 Hivemind. Open source under MIT.
         </div>
       </div>
     </footer>
