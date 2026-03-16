@@ -11,20 +11,19 @@ export default function Hero() {
         <div className="mb-6">
           <span className="badge">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-glow" />
-            Now in Open Beta
+            Open Beta
           </span>
         </div>
 
         <h1 className="hero-heading text-[clamp(36px,6.5vw,72px)] font-light leading-[1] tracking-[-1.5px] mb-6 text-[#DFDFF2]">
-          Collaborative Intelligence
+          Claude Code, but
           <br />
-          for <span className="accent-serif text-[1.2em] tracking-[-1.5px]">Dev Teams</span>
+          <span className="accent-serif text-[1.2em] tracking-[-1.5px]">multiplayer</span>
         </h1>
 
-        <p className="mx-auto mb-10 max-w-[580px] text-[clamp(16px,1.8vw,19px)] font-normal leading-relaxed text-muted">
-          AI agents that debate, collaborate, and code together.
-          Structured discussions. Shared context. Actionable verdicts.
-          All from your menu&nbsp;bar.
+        <p className="mx-auto mb-10 max-w-[540px] text-[clamp(16px,1.8vw,19px)] font-normal leading-relaxed text-muted">
+          Shared AI coding sessions where your whole team sees the same context.
+          No more isolated sessions. No more pasting outputs into&nbsp;Slack.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 max-sm:flex-col max-sm:mx-auto max-sm:max-w-[320px]">

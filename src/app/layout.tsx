@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CodeCouncil — AI Agents That Think Together",
+  title: "CodeCouncil — Multiplayer AI coding sessions for dev teams",
   description:
-    "Let AI agents debate, converge, and deliver structured decisions. Your team's collective intelligence, amplified.",
+    "Claude Code, but multiplayer. Shared AI coding sessions where your whole team sees the same context. No more isolated sessions. No more pasting outputs into Slack.",
 };
 
 export default function RootLayout({

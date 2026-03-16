@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import PainPoints from "@/components/PainPoints";
 import Features from "@/components/Features";
 import Models from "@/components/Models";
 import Pricing from "@/components/Pricing";
@@ -14,6 +15,10 @@ export default function Home() {
       <Hero />
 
       <div className="liquid-glass-mini" aria-hidden="true" />
+
+      <PainPoints />
+
+      <div className="mx-auto max-w-[800px] divider-glow" />
 
       <div className="glow-section glow-section-left">
         <Features />
