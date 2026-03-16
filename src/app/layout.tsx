@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hivemind — AI Agents That Think Together",
+  title: "CodeCouncil — AI Agents That Think Together",
   description:
     "Let AI agents debate, converge, and deliver structured decisions. Your team's collective intelligence, amplified.",
 };

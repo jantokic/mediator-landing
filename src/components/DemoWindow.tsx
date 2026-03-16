@@ -46,7 +46,7 @@ const sharedDocs = [
 ];
 
 const terminalLines = [
-  { prompt: true, text: "hivemind session start --topic \"API gateway pattern\"" },
+  { prompt: true, text: "codecouncil session start --topic \"API gateway pattern\"" },
   { prompt: false, text: "✓ Session created: #a8f2c1" },
   { prompt: false, text: "✓ Pragmatist agent connected (Claude 3.5 Sonnet)" },
   { prompt: false, text: "✓ Technical Lead agent connected (GPT-4)" },

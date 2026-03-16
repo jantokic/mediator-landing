@@ -12,7 +12,7 @@ export default function Header() {
           href="#"
           className="text-lg font-semibold tracking-tight text-fg transition-opacity hover:opacity-80"
         >
-          Hivemind
+          CodeCouncil
         </Link>
 
         <nav className="hidden md:flex items-center gap-1 rounded-full bg-white/[0.04] border border-white/[0.06] px-1.5 py-1.5 backdrop-blur-xl">
@@ -33,6 +33,12 @@ export default function Header() {
             className="px-4 py-1.5 text-sm text-muted rounded-full transition-colors hover:text-fg hover:bg-white/[0.06]"
           >
             Models
+          </Link>
+          <Link
+            href="#pricing"
+            className="px-4 py-1.5 text-sm text-muted rounded-full transition-colors hover:text-fg hover:bg-white/[0.06]"
+          >
+            Pricing
           </Link>
         </nav>
 

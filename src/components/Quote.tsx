@@ -10,10 +10,10 @@ export default function Quote() {
           <div className="mb-5 text-5xl leading-none text-accent/30">&ldquo;</div>
           <p className="mb-6 text-[clamp(20px,3vw,28px)] font-normal leading-snug tracking-tight">
             We kept asking AI the same questions in separate chats, then{" "}
-            <span className="accent-serif">debating whose answer was better</span>. Hivemind
+            <span className="accent-serif">debating whose answer was better</span>. CodeCouncil
             puts the agents in the same room.
           </p>
-          <p className="text-sm text-muted-2">— The moment that sparked Hivemind</p>
+          <p className="text-sm text-muted-2">— The moment that sparked CodeCouncil</p>
         </div>
       </div>
     </RevealWrapper>

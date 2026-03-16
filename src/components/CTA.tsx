@@ -24,7 +24,7 @@ export default function CTA() {
             Ready to <span className="accent-serif">think together?</span>
           </h2>
           <p className="mb-8 text-muted text-lg">
-            Download Hivemind and let your team think together.
+            Download CodeCouncil and let your team think together.
           </p>
           <Link
             href={DOWNLOAD_URL}
