@@ -1,18 +1,26 @@
 "use client";
 
-import { useState } from "react";
-
-const tabs = [
-  { id: "session", label: "Shared Session", icon: "👥" },
-  { id: "discussion", label: "Discussion Mode", icon: "💬" },
-  { id: "terminal", label: "Terminal", icon: "⌘" },
-];
-
 const participants = [
   { initials: "JT", color: "bg-blue-500", name: "Jan" },
   { initials: "AM", color: "bg-emerald-500", name: "Alex" },
   { initials: "SK", color: "bg-amber-500", name: "Sarah" },
 ];
+
+function WindowChrome({ title, shortcut }: { title: string; shortcut?: string }) {
+  return (
+    <div className="flex items-center border-b border-white/[0.06] px-4 py-2.5">
+      <div className="flex gap-1.5 mr-4">
+        <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]/60 transition-colors hover:bg-[#ff5f57]" />
+        <div className="h-2.5 w-2.5 rounded-full bg-[#febc2e]/60 transition-colors hover:bg-[#febc2e]" />
+        <div className="h-2.5 w-2.5 rounded-full bg-[#28c840]/60 transition-colors hover:bg-[#28c840]" />
+      </div>
+      <span className="text-xs font-medium text-fg/60 flex-1">{title}</span>
+      {shortcut && (
+        <span className="text-[10px] text-muted-2 bg-white/[0.04] px-2 py-0.5 rounded-md max-sm:hidden">{shortcut}</span>
+      )}
+    </div>
+  );
+}
 
 function SharedSessionView() {
   return (
@@ -139,77 +147,21 @@ function DiscussionView() {
   );
 }
 
-function TerminalView() {
-  const lines = [
-    { prompt: true, text: "codecouncil session start --team" },
-    { prompt: false, text: "✓ Session created: #c7f2a1" },
-    { prompt: false, text: "✓ Connected: Jan, Alex, Sarah" },
-    { prompt: false, text: "✓ AI context loaded (auth-service, 12 files)" },
-    { prompt: false, text: "⟳ Session live — all participants synced" },
-    { prompt: false, text: "✓ Alex shared: architecture-rfc.md" },
-    { prompt: false, text: "✓ Jan started Discussion: API gateway pattern" },
-    { prompt: false, text: "✓ Discussion converged at 87%. Verdict saved." },
-  ];
-
-  return (
-    <div className="p-5 font-mono text-[13px]">
-      {lines.map((line, i) => (
-        <div key={i} className="animate-msg leading-relaxed" style={{ animationDelay: `${0.3 + i * 0.4}s` }}>
-          {line.prompt ? (
-            <span>
-              <span className="text-accent-light">❯</span>{" "}
-              <span className="text-fg/80">{line.text}</span>
-            </span>
-          ) : (
-            <span className={`${line.text.startsWith("✓") ? "text-green-400/80" : line.text.startsWith("⟳") ? "text-yellow-400/70" : "text-muted-2"}`}>
-              {"  "}{line.text}
-            </span>
-          )}
-        </div>
-      ))}
-      <div className="animate-msg mt-2" style={{ animationDelay: `${0.3 + lines.length * 0.4}s` }}>
-        <span className="text-accent-light">❯</span>{" "}
-        <span className="inline-block w-2 h-4 bg-fg/60 animate-pulse align-text-bottom" />
-      </div>
-    </div>
-  );
-}
-
 export default function DemoWindow() {
-  const [activeTab, setActiveTab] = useState("session");
-
   return (
-    <div className="mx-auto max-w-[920px] glass-card-strong overflow-hidden shadow-2xl shadow-accent/[0.04]">
-      <div className="flex items-center border-b border-white/[0.06] px-4 py-2.5">
-        <div className="flex gap-1.5 mr-4">
-          <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]/60 transition-colors hover:bg-[#ff5f57]" />
-          <div className="h-2.5 w-2.5 rounded-full bg-[#febc2e]/60 transition-colors hover:bg-[#febc2e]" />
-          <div className="h-2.5 w-2.5 rounded-full bg-[#28c840]/60 transition-colors hover:bg-[#28c840]" />
-        </div>
-        <div className="flex items-center gap-0.5 flex-1">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all cursor-pointer ${
-                activeTab === tab.id
-                  ? "bg-white/[0.08] text-fg/90"
-                  : "text-muted-2 hover:text-muted hover:bg-white/[0.03]"
-              }`}
-            >
-              <span className="text-[11px]">{tab.icon}</span>
-              <span className="max-sm:hidden">{tab.label}</span>
-            </button>
-          ))}
-        </div>
-        <div className="flex items-center gap-2 max-sm:hidden">
-          <span className="text-[10px] text-muted-2 bg-white/[0.04] px-2 py-0.5 rounded-md">⌘N</span>
+    <div className="mx-auto max-w-[1200px] grid md:grid-cols-2 gap-5">
+      <div className="glass-card-strong overflow-hidden shadow-2xl shadow-accent/[0.04]">
+        <WindowChrome title="codecouncil — shared session" shortcut="⌘N" />
+        <div className="min-h-[440px]">
+          <SharedSessionView />
         </div>
       </div>
-      <div className="min-h-[380px]">
-        {activeTab === "session" && <SharedSessionView />}
-        {activeTab === "discussion" && <DiscussionView />}
-        {activeTab === "terminal" && <TerminalView />}
+
+      <div className="glass-card-strong overflow-hidden shadow-2xl shadow-accent/[0.04]">
+        <WindowChrome title="codecouncil — discussion mode" shortcut="⌘D" />
+        <div className="min-h-[440px]">
+          <DiscussionView />
+        </div>
       </div>
     </div>
   );

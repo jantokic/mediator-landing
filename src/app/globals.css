@@ -342,12 +342,12 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: 70%;
+  width: 100%;
+  height: 80%;
   background: radial-gradient(
     ellipse 50% 40% at 50% 50%,
-    rgba(139, 123, 245, 0.05) 0%,
-    rgba(108, 92, 231, 0.02) 40%,
+    rgba(139, 123, 245, 0.08) 0%,
+    rgba(108, 92, 231, 0.03) 40%,
     transparent 70%
   );
   pointer-events: none;
@@ -359,8 +359,8 @@ body {
   left: 20%;
   background: radial-gradient(
     ellipse 40% 50% at 30% 50%,
-    rgba(139, 123, 245, 0.06) 0%,
-    rgba(108, 92, 231, 0.02) 40%,
+    rgba(139, 123, 245, 0.09) 0%,
+    rgba(108, 92, 231, 0.04) 40%,
     transparent 70%
   );
 }
@@ -369,8 +369,8 @@ body {
   left: 80%;
   background: radial-gradient(
     ellipse 40% 50% at 70% 50%,
-    rgba(139, 123, 245, 0.06) 0%,
-    rgba(108, 92, 231, 0.02) 40%,
+    rgba(139, 123, 245, 0.09) 0%,
+    rgba(108, 92, 231, 0.04) 40%,
     transparent 70%
   );
 }
@@ -408,6 +408,89 @@ body {
     rgba(160, 155, 255, 0.12) 70%,
     transparent 100%
   );
+}
+
+/* Section-level liquid glass — subtle purple glow bands behind content */
+.liquid-glass-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(100, 90, 220, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 30% at 50% 100%, rgba(130, 120, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 50% at 20% 50%, rgba(139, 123, 245, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 80% 50%, rgba(139, 123, 245, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-glass-section::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  width: 120%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(160, 155, 255, 0.06) 20%,
+    rgba(180, 175, 255, 0.12) 50%,
+    rgba(160, 155, 255, 0.06) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Variant with top glow emphasis */
+.liquid-glass-section-top::before {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(100, 90, 220, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 30% at 30% 30%, rgba(139, 123, 245, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 30% at 70% 30%, rgba(139, 123, 245, 0.05) 0%, transparent 50%);
+}
+
+/* Variant with bottom glow emphasis */
+.liquid-glass-section-bottom::before {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(100, 90, 220, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 30% at 30% 70%, rgba(139, 123, 245, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 30% at 70% 70%, rgba(139, 123, 245, 0.05) 0%, transparent 50%);
+}
+
+/* Floating purple orb for section decoration */
+.liquid-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 123, 245, 0.15) 0%, rgba(108, 92, 231, 0.05) 50%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-orb-sm {
+  width: 200px;
+  height: 200px;
+}
+
+.liquid-orb-md {
+  width: 350px;
+  height: 350px;
+}
+
+.liquid-orb-lg {
+  width: 500px;
+  height: 500px;
 }
 
 /* Glass card */
@@ -551,7 +634,12 @@ body {
 .accent-serif {
   font-family: var(--font-serif);
   font-style: italic;
-  color: #8987fc;
+  color: #b8b5ff;
+  -webkit-text-stroke: 1.2px #b8b5ff;
+  paint-order: stroke fill;
+  letter-spacing: 0.03em;
+  font-size: 1.1em;
+  text-shadow: 0 0 30px rgba(139, 123, 245, 0.4);
 }
 
 /* Gradient text */

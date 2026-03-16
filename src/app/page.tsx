@@ -16,29 +16,31 @@ export default function Home() {
 
       <div className="liquid-glass-mini" aria-hidden="true" />
 
-      <PainPoints />
+      <div className="liquid-glass-section liquid-glass-section-top">
+        <PainPoints />
+      </div>
 
       <div className="mx-auto max-w-[800px] divider-glow" />
 
-      <div className="glow-section glow-section-left">
+      <div className="glow-section glow-section-left liquid-glass-section">
         <Features />
       </div>
 
       <div className="liquid-glass-mini" aria-hidden="true" />
 
-      <div className="glow-section glow-section-right">
+      <div className="glow-section glow-section-right liquid-glass-section liquid-glass-section-bottom">
         <Models />
       </div>
 
       <div className="liquid-glass-mini" aria-hidden="true" />
 
-      <div className="glow-section">
+      <div className="glow-section liquid-glass-section liquid-glass-section-top">
         <Pricing />
       </div>
 
       <div className="mx-auto max-w-[800px] divider-glow" />
 
-      <div className="glow-section">
+      <div className="glow-section liquid-glass-section">
         <Quote />
       </div>
 
