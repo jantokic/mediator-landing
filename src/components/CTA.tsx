@@ -8,10 +8,10 @@ export default function CTA() {
     <RevealWrapper>
       <div className="px-6 py-32 text-center">
         <h2 className="mb-8 font-mono text-[clamp(28px,4vw,40px)] font-normal">
-          Get Mediator Today
+          Get Hivemind Today
         </h2>
         <Link
-          href="https://github.com/jantokic/mediator"
+          href="https://github.com/jantokic/hivemind"
           className="inline-flex items-center gap-2 bg-fg text-bg px-5 py-2.5 text-sm transition-colors hover:bg-fg/85"
         >
           Download for macOS

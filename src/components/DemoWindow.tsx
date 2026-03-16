@@ -41,7 +41,7 @@ export default function DemoWindow() {
         <div className="h-2 w-2 rounded-full bg-[rgba(254,188,46,0.5)]" />
         <div className="h-2 w-2 rounded-full bg-[rgba(40,200,64,0.5)]" />
         <span className="flex-1 text-center font-mono text-xs text-muted-2">
-          mediator — architecture debate
+          hivemind — architecture debate
         </span>
       </div>
 
