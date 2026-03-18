@@ -13,39 +13,21 @@ export default function Home() {
     <>
       <Header />
       <Hero />
+      <PainPoints />
 
-      <div className="liquid-glass-mini" aria-hidden="true" />
+      {/* Gradient divider into features */}
+      <div className="mx-auto max-w-[800px] h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
 
-      <div className="liquid-glass-section liquid-glass-section-top">
-        <PainPoints />
+      <Features />
+
+      {/* Section glow between features and models */}
+      <div className="relative h-32 overflow-hidden" aria-hidden="true">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] rounded-full bg-accent/[0.08] blur-[100px]" />
       </div>
 
-      <div className="mx-auto max-w-[800px] divider-glow" />
-
-      <div className="glow-section glow-section-left liquid-glass-section">
-        <Features />
-      </div>
-
-      <div className="liquid-glass-mini" aria-hidden="true" />
-
-      <div className="glow-section glow-section-right liquid-glass-section liquid-glass-section-bottom">
-        <Models />
-      </div>
-
-      <div className="liquid-glass-mini" aria-hidden="true" />
-
-      <div className="glow-section liquid-glass-section liquid-glass-section-top">
-        <Pricing />
-      </div>
-
-      <div className="mx-auto max-w-[800px] divider-glow" />
-
-      <div className="glow-section liquid-glass-section">
-        <Quote />
-      </div>
-
-      <div className="liquid-glass-mini" aria-hidden="true" />
-
+      <Models />
+      <Pricing />
+      <Quote />
       <CTA />
       <Footer />
     </>

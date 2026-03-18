@@ -4,16 +4,33 @@ import { useState } from "react";
 import Link from "next/link";
 import { RevealWrapper } from "./Features";
 
-const DOWNLOAD_URL = "https://github.com/jantokic/codecouncil/releases/download/v0.3.0/codecouncil-0.3.0-arm64.dmg";
+const DOWNLOAD_URL =
+  "https://github.com/jantokic/codecouncil/releases/download/v0.3.0/codecouncil-0.3.0-arm64.dmg";
 
 const check = (
-  <svg className="w-4 h-4 text-green-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    className="w-4 h-4 text-emerald-400 shrink-0"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <polyline points="20 6 9 17 4 12" />
   </svg>
 );
 
 const checkMuted = (
-  <svg className="w-4 h-4 text-muted-2 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    className="w-4 h-4 text-muted-2 shrink-0"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <polyline points="20 6 9 17 4 12" />
   </svg>
 );
@@ -46,103 +63,145 @@ export default function Pricing() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="pricing" className="relative px-6 py-28">
+    <section id="pricing" className="relative px-6 py-32">
       <div className="mx-auto max-w-[1200px] relative z-10">
         <RevealWrapper>
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <span className="badge mx-auto">Pricing</span>
-            <h2 className="mt-6 text-[clamp(30px,4.5vw,48px)] font-semibold leading-[1.1] tracking-tight">
-              Start free, scale with <span className="accent-serif">your team</span>
+            <h2 className="mt-6 text-[clamp(34px,5.5vw,56px)] font-bold leading-[1.05] tracking-[-0.03em]">
+              Start free, scale with{" "}
+              <span className="accent-serif">your team</span>
             </h2>
-            <p className="mt-4 text-[17px] text-muted max-w-[500px] mx-auto">
+            <p className="mt-5 text-lg text-muted max-w-[520px] mx-auto leading-relaxed">
               Everything you need for solo use. Upgrade when your team is ready.
             </p>
           </div>
         </RevealWrapper>
 
         <RevealWrapper>
-          <div className="grid md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
-            {/* Free */}
-            <div className="glass-card p-8 flex flex-col">
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-1">Free</h3>
-                <div className="flex items-baseline gap-1 mb-3">
-                  <span className="text-4xl font-light text-[#DFDFF2] hero-heading">$0</span>
-                  <span className="text-sm text-muted-2">forever</span>
+          <div className="grid md:grid-cols-2 gap-6 max-w-[920px] mx-auto">
+            {/* Free tier */}
+            <div className="glass-card p-10 flex flex-col">
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-fg/70 mb-3">Free</h3>
+                <div className="flex items-baseline gap-1.5 mb-4">
+                  <span className="text-5xl font-light text-fg hero-heading tracking-tight">
+                    $0
+                  </span>
+                  <span className="text-sm text-muted-2 ml-1">forever</span>
                 </div>
-                <p className="text-sm text-muted">Everything you need to get started with multiplayer AI coding.</p>
+                <p className="text-sm text-muted leading-relaxed">
+                  Everything you need to get started with multiplayer AI coding.
+                </p>
               </div>
 
-              <div className="flex flex-col gap-3 flex-1 mb-8">
+              <div className="flex flex-col gap-3.5 flex-1 mb-10">
                 {freeFeatures.map((f) => (
-                  <div key={f} className="flex items-center gap-2.5">
-                    {checkMuted}
-                    <span className="text-sm text-muted">{f}</span>
+                  <div key={f} className="flex items-start gap-3">
+                    <div className="mt-0.5">{checkMuted}</div>
+                    <span className="text-sm text-muted leading-relaxed">{f}</span>
                   </div>
                 ))}
               </div>
 
-              <Link href={DOWNLOAD_URL} className="btn-pill btn-secondary w-full justify-center">
+              <Link
+                href={DOWNLOAD_URL}
+                className="btn-pill btn-secondary w-full justify-center py-3 text-sm font-medium"
+              >
                 Download Free
               </Link>
             </div>
 
-            {/* Pro */}
-            <div className="glass-card-strong p-8 flex flex-col relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+            {/* Pro tier */}
+            <div className="relative flex flex-col overflow-hidden">
+              {/* Gradient top border */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent z-10" />
 
-              <div className="mb-6">
-                <div className="flex items-center gap-2 mb-1">
-                  <h3 className="text-xl font-semibold">Pro</h3>
-                  <span className="rounded-full bg-accent/15 border border-accent/20 px-2 py-0.5 text-[10px] font-medium text-accent-light uppercase tracking-wide">Coming Soon</span>
-                </div>
-                <div className="flex items-baseline gap-1 mb-3">
-                  <span className="text-4xl font-light text-[#DFDFF2] hero-heading">$19</span>
-                  <span className="text-sm text-muted-2">per user/mo</span>
-                </div>
-                <p className="text-sm text-muted">For teams that need persistent sessions, handoff, and full control.</p>
-              </div>
+              {/* Ambient glow */}
+              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-accent/[0.08] rounded-full blur-[80px] pointer-events-none" />
 
-              <div className="flex flex-col gap-3 flex-1 mb-8">
-                {proFeatures.map((f) => (
-                  <div key={f.text} className="flex items-center gap-2.5">
-                    {check}
-                    <span className={`text-sm ${f.bold ? "text-fg/90 font-medium" : "text-muted"}`}>
-                      {f.text}
+              <div className="glass-card-strong p-10 flex flex-col flex-1 relative">
+                <div className="mb-8">
+                  <div className="flex items-center gap-3 mb-3">
+                    <h3 className="text-lg font-semibold text-fg/90">Pro</h3>
+                    <span className="rounded-full bg-accent/15 border border-accent/25 px-3 py-1 text-[11px] font-semibold text-accent-light uppercase tracking-wider">
+                      Coming Soon
                     </span>
-                    {f.soon && (
-                      <span className="rounded-full bg-white/[0.06] px-1.5 py-0.5 text-[9px] text-muted-2">Soon</span>
-                    )}
                   </div>
-                ))}
-              </div>
-
-              {/* Waitlist */}
-              {submitted ? (
-                <div className="btn-pill bg-green-500/10 border border-green-500/20 text-green-400 w-full justify-center cursor-default">
-                  You&apos;re on the list ✓
+                  <div className="flex items-baseline gap-1.5 mb-4">
+                    <span className="text-5xl font-light text-fg hero-heading tracking-tight">
+                      $19
+                    </span>
+                    <span className="text-sm text-muted-2 ml-1">per user / mo</span>
+                  </div>
+                  <p className="text-sm text-muted leading-relaxed">
+                    For teams that need persistent sessions, handoff, and full
+                    control.
+                  </p>
                 </div>
-              ) : (
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    if (email) setSubmitted(true);
-                  }}
-                  className="flex gap-2"
-                >
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@company.com"
-                    required
-                    className="flex-1 rounded-full bg-white/[0.04] border border-white/[0.08] px-4 py-2.5 text-sm text-fg placeholder:text-muted-2 outline-none focus:border-accent/30 transition-colors"
-                  />
-                  <button type="submit" className="btn-pill btn-accent shrink-0">
-                    Join Waitlist
-                  </button>
-                </form>
-              )}
+
+                <div className="flex flex-col gap-3.5 flex-1 mb-10">
+                  {proFeatures.map((f) => (
+                    <div key={f.text} className="flex items-start gap-3">
+                      <div className="mt-0.5">{check}</div>
+                      <span
+                        className={`text-sm leading-relaxed ${
+                          f.bold ? "text-fg/90 font-medium" : "text-muted"
+                        }`}
+                      >
+                        {f.text}
+                      </span>
+                      {f.soon && (
+                        <span className="rounded-full bg-white/[0.06] border border-white/[0.06] px-2 py-0.5 text-[10px] text-muted-2 shrink-0">
+                          Soon
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Waitlist form */}
+                {submitted ? (
+                  <div className="flex items-center justify-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 py-3 text-sm font-medium">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    You&apos;re on the list
+                  </div>
+                ) : (
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      if (email) setSubmitted(true);
+                    }}
+                    className="flex gap-2"
+                  >
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="you@company.com"
+                      required
+                      className="flex-1 rounded-full bg-white/[0.03] border border-white/[0.08] px-5 py-3 text-sm text-fg placeholder:text-muted-2 outline-none focus:border-accent/30 focus:bg-white/[0.04] transition-all"
+                    />
+                    <button
+                      type="submit"
+                      className="btn-pill btn-accent shrink-0 py-3 px-6 text-sm font-medium"
+                    >
+                      Join Waitlist
+                    </button>
+                  </form>
+                )}
+              </div>
             </div>
           </div>
         </RevealWrapper>
