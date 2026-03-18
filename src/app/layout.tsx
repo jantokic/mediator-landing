@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     "Claude Code, but multiplayer. Shared AI coding sessions where your whole team sees the same context. No more isolated sessions. No more pasting outputs into Slack.",
   metadataBase: new URL("https://codecouncil.dev"),
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
   },
 };
 

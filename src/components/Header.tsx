@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { LogoMark } from "./Logo";
 
 const DOWNLOAD_URL =
   "https://github.com/jantokic/codecouncil/releases/download/v0.3.0/codecouncil-0.3.0-arm64.dmg";
@@ -40,35 +41,9 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="#"
-          className="flex items-center gap-2 text-[15px] font-semibold tracking-tight text-fg transition-opacity hover:opacity-80"
+          className="flex items-center gap-2.5 text-[15px] font-semibold tracking-tight text-fg transition-opacity hover:opacity-80"
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="text-accent"
-          >
-            <path
-              d="M12 2L2 7l10 5 10-5-10-5z"
-              fill="currentColor"
-              opacity="0.3"
-            />
-            <path
-              d="M2 17l10 5 10-5"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M2 12l10 5 10-5"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <LogoMark size={22} />
           CodeCouncil
         </Link>
 

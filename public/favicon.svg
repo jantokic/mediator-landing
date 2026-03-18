@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Three converging planes — abstract "council" mark -->
+  <path d="M16 3L28 12L16 21L4 12Z" fill="#8b7bf5" opacity="0.9"/>
+  <path d="M16 8L28 17L16 26L4 17Z" fill="#a78bfa" opacity="0.55"/>
+  <path d="M16 13L28 22L16 31L4 22Z" fill="#c4b5fd" opacity="0.3"/>
+</svg>
