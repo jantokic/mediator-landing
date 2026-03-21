@@ -422,8 +422,7 @@ export default function Features() {
             <SectionHeader
               number="4.0"
               title="Pick up where anyone left off."
-              description="Sessions persist in the cloud. Developer A starts at 3pm, Developer B picks it up at 4pm with full context."
-              comingSoon
+              description="Sessions persist locally. Developer A figures out the auth migration at 3pm. Developer B opens the session at 4pm — full conversation, full context, continues where A stopped. The AI remembers everything."
             />
           </RevealWrapper>
 

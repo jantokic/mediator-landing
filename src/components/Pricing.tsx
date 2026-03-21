@@ -130,13 +130,14 @@ export default function Pricing() {
                   </div>
                   <div className="flex items-baseline gap-1.5 mb-4">
                     <span className="text-5xl font-light text-fg hero-heading tracking-tight">
-                      $19
+                      $15
                     </span>
                     <span className="text-sm text-muted-2 ml-1">per user / mo</span>
                   </div>
                   <p className="text-sm text-muted leading-relaxed">
-                    For teams that need persistent sessions, handoff, and full
-                    control.
+                    For teams that need cloud persistence, unlimited members,
+                    and session search. Everything in Free, everywhere — across
+                    devices, across the team, always available.
                   </p>
                 </div>
 

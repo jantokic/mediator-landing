@@ -18,21 +18,16 @@ export default function Quote() {
                 <div>
                   <div className="text-accent/50 text-7xl leading-none font-serif mb-5">&ldquo;</div>
                   <p className="text-[clamp(20px,2.5vw,26px)] font-medium leading-[1.4] tracking-[-0.01em] text-fg/90">
-                    We used to spend the first 20 minutes of every AI session
-                    re-explaining our architecture. Now the whole team shares one
-                    persistent context.
+                    We kept asking each other for &lsquo;the Claude instance
+                    with the right context.&rsquo; Everyone had their own
+                    isolated AI session. The best decisions we made with AI were
+                    trapped on one person&apos;s machine.
                   </p>
                 </div>
-                <div className="mt-10 flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-accent/25 flex items-center justify-center text-base font-bold text-accent-light">
-                    S
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-fg/85">Sarah L.</p>
-                    <p className="text-xs text-muted-2 mt-0.5">
-                      Staff Engineer, Meridian Labs
-                    </p>
-                  </div>
+                <div className="mt-10 flex items-center gap-3">
+                  <p className="text-sm text-muted-2 italic">
+                    — The problem that started CodeCouncil
+                  </p>
                 </div>
               </div>
             </div>

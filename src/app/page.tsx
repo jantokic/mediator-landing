@@ -3,6 +3,8 @@ import Hero from "@/components/Hero";
 import PainPoints from "@/components/PainPoints";
 import Features from "@/components/Features";
 import Models from "@/components/Models";
+import Comparison from "@/components/Comparison";
+import OpenSource from "@/components/OpenSource";
 import Pricing from "@/components/Pricing";
 import Quote from "@/components/Quote";
 import CTA from "@/components/CTA";
@@ -26,6 +28,8 @@ export default function Home() {
       </div>
 
       <Models />
+      <Comparison />
+      <OpenSource />
       <Pricing />
       <Quote />
       <CTA />
