@@ -41,21 +41,24 @@ const freeFeatures = [
   "4 built-in personas + custom",
   "MCP integration",
   "Discussion mode with auto-convergence",
-  "Up to 3 team members",
+  "Shared terminal (interactive, with permission)",
+  "Up to 3 participants per session",
+  "2-hour shared session timeout",
   "Local session history (7 days)",
   "Menu bar app",
 ];
 
 const proFeatures = [
   { text: "Everything in Free, plus:", bold: true },
-  { text: "Unlimited team members" },
+  { text: "Unlimited participants" },
+  { text: "No session timeout" },
   { text: "Cloud-synced persistent sessions" },
   { text: "Session handoff between members" },
   { text: "Full session history + search" },
-  { text: "Role-based access (execute / observe / suggest)" },
+  { text: "Role-based access (owner / admin / execute / observe / suggest)" },
   { text: "Decision audit trail" },
-  { text: "Web & mobile access", soon: true },
-  { text: "Priority support" },
+  { text: "Priority relay (dedicated capacity)" },
+  { text: "Web access (session history)", soon: true },
 ];
 
 export default function Pricing() {

@@ -23,7 +23,7 @@ function WindowChrome({ title, shortcut }: { title: string; shortcut?: string })
 /* ── Animated typing terminal — LOOPS continuously ─────────── */
 
 const TERMINAL_LINES = [
-  { type: "prompt" as const, user: "jan", color: "text-blue-400", text: "Can we refactor the auth middleware to use JWT validation?" },
+  { type: "prompt" as const, user: "ryan", color: "text-blue-400", text: "Can we refactor the auth middleware to use JWT validation?" },
   { type: "response" as const, text: "I'll analyze the auth middleware. The race condition is in middleware/auth.ts:47 — the token refresh isn't atomic." },
   { type: "file" as const, text: "  auth-service/middleware/auth.ts" },
   { type: "diff" as const, text: "+ const refreshLock = await redis.set(" },
@@ -168,7 +168,7 @@ function LeftSidebar() {
 function TeamSidebar() {
   const [activeIdx, setActiveIdx] = useState(0);
   const users = [
-    { initials: "JT", name: "Jan T.", tool: "claude-code", color: "bg-blue-500/25", textColor: "text-blue-400" },
+    { initials: "RT", name: "Ryan T.", tool: "claude-code", color: "bg-blue-500/25", textColor: "text-blue-400" },
     { initials: "AM", name: "Alex M.", tool: "reviewing", color: "bg-emerald-500/25", textColor: "text-emerald-400" },
     { initials: "SK", name: "Sarah K.", tool: "shell", color: "bg-amber-500/25", textColor: "text-amber-400" },
   ];
@@ -356,12 +356,12 @@ export function HandoffView() {
       </div>
 
       <div className="flex-1 px-5 py-5 flex flex-col gap-3">
-        {/* Jan's session */}
+        {/* Ryan's session */}
         <div className={`rounded-xl border p-4 transition-all duration-700 ${phase === "paused" ? "bg-white/[0.04] border-white/[0.1] shadow-lg shadow-black/20" : "bg-white/[0.025] border-white/[0.06]"}`}>
           <div className="flex items-center gap-2.5 mb-3">
-            <div className="h-[22px] w-[22px] rounded-md bg-blue-500/25 flex items-center justify-center text-[8px] font-bold text-blue-400">JT</div>
+            <div className="h-[22px] w-[22px] rounded-md bg-blue-500/25 flex items-center justify-center text-[8px] font-bold text-blue-400">RT</div>
             <div className="flex-1">
-              <span className="text-[11px] text-fg/75 font-medium">Jan T.</span>
+              <span className="text-[11px] text-fg/75 font-medium">Ryan T.</span>
               <span className="text-[10px] text-muted-2 ml-2">3:00 PM</span>
             </div>
             <span className={`rounded-md px-2 py-0.5 text-[9px] font-mono transition-all duration-500 ${phase === "paused" ? "bg-amber-400/15 border border-amber-400/15 text-amber-400" : "bg-white/[0.04] border border-white/[0.06] text-muted-2"}`}>
@@ -403,7 +403,7 @@ export function HandoffView() {
             </span>
           </div>
           <div className="text-[12px] text-fg/70 leading-[1.7]">
-            Full context intact. Picks up exactly where Jan left off — no re-explaining, no lost decisions.
+            Full context intact. Picks up exactly where Ryan left off — no re-explaining, no lost decisions.
           </div>
         </div>
       </div>

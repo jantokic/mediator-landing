@@ -126,7 +126,7 @@ function SubFeatureLinks({
 function CollaborateVisual() {
   const [activeUser, setActiveUser] = useState(0);
   const users = [
-    { name: "Jan T.", initials: "JT", color: "bg-blue-500", colorBg: "bg-blue-500/20", colorText: "text-blue-400", action: "Asked about auth refactor", tool: "claude-code" },
+    { name: "Ryan T.", initials: "RT", color: "bg-blue-500", colorBg: "bg-blue-500/20", colorText: "text-blue-400", action: "Asked about auth refactor", tool: "claude-code" },
     { name: "Alex M.", initials: "AM", color: "bg-emerald-500", colorBg: "bg-emerald-500/20", colorText: "text-emerald-400", action: "Added Redis context", tool: "reviewing" },
     { name: "Sarah K.", initials: "SK", color: "bg-amber-500", colorBg: "bg-amber-500/20", colorText: "text-amber-400", action: "Requested TTL cleanup", tool: "shell" },
   ];
@@ -211,6 +211,99 @@ function CollaborateVisual() {
             <line x1="12" y1="8" x2="12.01" y2="8" />
           </svg>
           <span className="text-[11px] text-muted-2">AI has full context from all 3 participants</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Section 1.5 — Shared Terminal Visual ─────────────────── */
+
+function TerminalShareVisual() {
+  const [mode, setMode] = useState<"observe" | "interactive">("observe");
+
+  const lines = [
+    { prefix: "ryan@mbp ~/project", cmd: "claude --session auth-refactor", color: "text-fg/80" },
+    { output: "Claude Code v1.2.0 — Session: auth-refactor (shared)", color: "text-muted-2" },
+    { output: "→ Analyzing middleware chain in src/auth/...", color: "text-accent-light/70" },
+    { output: "Found 3 files referencing legacy session tokens.", color: "text-muted" },
+    { prefix: "ryan@mbp ~/project", cmd: "git diff --stat", color: "text-fg/80" },
+    { output: " src/auth/middleware.ts  | 42 ++++++---", color: "text-emerald-400/70" },
+    { output: " src/auth/session.ts    | 18 ++--", color: "text-emerald-400/70" },
+  ];
+
+  return (
+    <div className="glass-card-strong overflow-hidden rounded-2xl shadow-2xl shadow-accent/[0.06]">
+      {/* Window chrome */}
+      <div className="flex items-center border-b border-white/[0.06] px-4 py-2.5 bg-white/[0.015]">
+        <div className="flex gap-[6px] mr-4" aria-hidden="true">
+          <div className="h-[11px] w-[11px] rounded-full bg-[#ff5f57]/70" />
+          <div className="h-[11px] w-[11px] rounded-full bg-[#febc2e]/70" />
+          <div className="h-[11px] w-[11px] rounded-full bg-[#28c840]/70" />
+        </div>
+        <span className="text-[11px] font-medium text-fg/50 tracking-wide">
+          CodeCouncil — Ryan&apos;s Terminal
+        </span>
+        <div className="flex items-center gap-2 ml-auto">
+          <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+          <span className="text-[10px] font-mono text-green-400/70">LIVE</span>
+        </div>
+      </div>
+
+      <div className="p-5">
+        {/* Mode toggle */}
+        <div className="flex items-center gap-2 mb-4">
+          {(["observe", "interactive"] as const).map((m) => (
+            <button
+              key={m}
+              onClick={() => setMode(m)}
+              className={`rounded-lg px-3 py-1.5 text-[11px] font-medium transition-all duration-200 ${
+                mode === m
+                  ? "bg-accent/15 text-accent-light border border-accent/25"
+                  : "bg-white/[0.03] text-muted-2 border border-white/[0.06] hover:text-muted"
+              }`}
+            >
+              {m === "observe" ? "Observe" : "Interactive"}
+            </button>
+          ))}
+          <span className="text-[10px] text-muted-2 ml-2">
+            {mode === "observe" ? "Read-only view of Ryan's terminal" : "You can type commands"}
+          </span>
+        </div>
+
+        {/* Terminal output */}
+        <div className="rounded-lg bg-[#0a0a12] border border-white/[0.04] p-4 font-mono text-[12px] leading-[1.8]">
+          {lines.map((line, i) => (
+            <div key={i}>
+              {line.prefix ? (
+                <span>
+                  <span className="text-blue-400/70">{line.prefix}</span>
+                  <span className="text-muted-2"> $ </span>
+                  <span className={line.color}>{line.cmd}</span>
+                </span>
+              ) : (
+                <span className={line.color}>{line.output}</span>
+              )}
+            </div>
+          ))}
+          {mode === "interactive" && (
+            <div className="mt-1 flex items-center">
+              <span className="text-blue-400/70">alex@mbp ~/project</span>
+              <span className="text-muted-2"> $ </span>
+              <span className="inline-block w-[6px] h-[14px] bg-accent-light/60 animate-pulse" />
+            </div>
+          )}
+        </div>
+
+        {/* Viewer badge */}
+        <div className="flex items-center gap-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] px-3.5 py-2 mt-4">
+          <div className="flex -space-x-1.5">
+            <div className="h-[16px] w-[16px] rounded-full bg-blue-500 flex items-center justify-center text-[7px] font-bold text-white ring-1 ring-[#0a0a12]">J</div>
+            <div className="h-[16px] w-[16px] rounded-full bg-emerald-500 flex items-center justify-center text-[7px] font-bold text-white ring-1 ring-[#0a0a12]">A</div>
+          </div>
+          <span className="text-[11px] text-muted-2">
+            Alex is {mode === "observe" ? "watching" : "collaborating on"} Ryan&apos;s terminal
+          </span>
         </div>
       </div>
     </div>
@@ -360,6 +453,25 @@ export default function Features() {
 
           <RevealWrapper className="mt-12">
             <CollaborateVisual />
+          </RevealWrapper>
+        </div>
+      </div>
+
+      <SectionDivider />
+
+      {/* ── 1.5 Shared Terminal ────────────────────────────── */}
+      <div className="px-6 py-24">
+        <div className="mx-auto max-w-[1200px]">
+          <RevealWrapper>
+            <SectionHeader
+              number="1.5"
+              title="See each other's terminal, live."
+              description="Dev B watches Dev A's Claude Code session in real-time — every command, every output. Grant interactive access so they can jump in, or keep it observe-only. No screen sharing, no latency, no setup."
+            />
+          </RevealWrapper>
+
+          <RevealWrapper className="mt-12">
+            <TerminalShareVisual />
           </RevealWrapper>
         </div>
       </div>

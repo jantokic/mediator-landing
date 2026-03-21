@@ -20,8 +20,9 @@ export default function OpenSource() {
               every line of code, contribute improvements.
             </p>
             <p className="mt-4 text-[15px] leading-[1.75] text-muted max-w-[560px] mx-auto">
-              No telemetry. No data collection. Your code and conversations
-              never leave your machine.
+              No telemetry. No data collection. Your code stays on your
+              machine. Shared sessions route through our relay — nothing is
+              stored.
             </p>
             <div className="mt-10">
               <Link
